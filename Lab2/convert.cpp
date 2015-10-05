@@ -6,9 +6,7 @@
 #include <string>
 #include <cstring>
 
-using std::string;
-
-char* upConvert(const string& in) {
+char* upConvert(const std::string& in) {
     
     // Size of the input string
     size_t in_length{in.length()};
@@ -17,22 +15,28 @@ char* upConvert(const string& in) {
     // Copy elements of the "in" string into the C char array
     strncpy(c_string, in.c_str(), in_length);
     
+    // Count number of uppercase and lowercase chars in string
+    int num_lc_up{0};
+    for( int i{0}; i < in_length; i++){
+        if (c_string[i] == 32 || (c_string[i] > 64 && c_string[i] < 91)||(c_string[i] > 96 && c_string[i] < 123)) {
+            num_lc_up++;
+        }
+    }
+    
     // Create a temporary buffer to hold the result of the upper case conversion
-    char *buffer = new char[in_length];
+    char *buffer = new char[num_lc_up];
+    char *ptr = buffer;
     
     for (int i{0}; i < in_length; i++){
         // If char is lower case then convert to upper case and put into temporary buffer
         if ((c_string[i] > 96) && (c_string[i] < 123)) {
-            c_string[i] -= 32;
-            buffer[i] = c_string[i];
+            *ptr = c_string[i] -32;
+            ptr++;
         }
-        // If already upper case then just put into temporary buffer
-        if ((c_string[i] > 64) && (c_string[i] < 91)) {
-            buffer[i] = c_string[i];
-        }
-        // Account for spaces
-        if (c_string[i] == 32) {
-            buffer[i] = ' ';
+        // If already upper case then just put into temporary buffer or if space
+        if ((c_string[i] > 64 && c_string[i] < 91) || c_string[i] == 32) {
+            *ptr = c_string[i];
+            ptr++;
         }
     }
     
@@ -42,7 +46,7 @@ char* upConvert(const string& in) {
     return buffer;
 }
 
-char* repeatConvert(const string& in, int r) {
+char* repeatConvert(const std::string& in, int r) {
     
     // Size of the input string
     size_t in_len{in.length()};
@@ -60,7 +64,7 @@ char* repeatConvert(const string& in, int r) {
     }
     
     // Declare a dynamic array of the number of chars needed for the final expanded array
-    char *buffer = new char[in_len+(num_vowels*r)];
+    char *buffer = new char[in_len-num_vowels+(num_vowels*r)];
     // Declare temporary pointer to the dynamic char array
     char *ptr = buffer;
     
@@ -84,8 +88,3 @@ char* repeatConvert(const string& in, int r) {
     
     return buffer;
 }
-
-
-
-
-

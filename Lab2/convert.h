@@ -3,14 +3,13 @@
 //  CSI2372_LAB2
 //
 
+// Define header guards
 #ifndef __CSI2372_LAB2__convert__
 #define __CSI2372_LAB2__convert__
 
 #include <string>
 
-using std::string;
-
-char* upConvert(const string& in);
-char* repeatConvert(const string& in, int r);
+char* upConvert(const std::string& in);
+char* repeatConvert(const std::string& in, int r);
 
 #endif
