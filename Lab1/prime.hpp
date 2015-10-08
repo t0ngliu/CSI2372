@@ -1,5 +1,5 @@
 //
-//  prime.h
+//  prime.hpp
 //  CSI2372_LAB1
 //
 

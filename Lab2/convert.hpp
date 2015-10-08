@@ -1,5 +1,5 @@
 //
-//  convert.h
+//  convert.hpp
 //  CSI2372_LAB2
 //
 

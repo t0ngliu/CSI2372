@@ -4,7 +4,7 @@
 //
 
 #include <iostream>
-#include "prime.h"
+#include "prime.hpp"
 
 using std::cout;
 using std::cin;

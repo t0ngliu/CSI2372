@@ -3,8 +3,6 @@
 //  CSI2372_LAB1
 //
 
-#include "prime.h"
-
 /*
  * Takes an input and returns whether the input is prime or not
  * @return bool number is prime

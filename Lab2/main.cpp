@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <string>
-#include "convert.h"
+#include "convert.hpp"
 
 int main(int argc, const char * argv[]) {
     
